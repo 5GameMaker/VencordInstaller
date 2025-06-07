@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-linux:
-    runs-on: ubuntu-20.04 # hopefully older glibc for better compatibility on systems like debian bullseye
+    runs-on: ubuntu-22.04 # hopefully older glibc for better compatibility on systems like debian bullseye
 
     steps:
       - name: Install Go
@@ -45,13 +45,13 @@ jobs:
           chmod +x VencordInstallerCli-linux
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: VencordInstaller-linux
           path: |
             VencordInstallerCli-linux
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: VencordInstallerGui-linux
           path: |
@@ -107,7 +107,7 @@ jobs:
           zip -r VencordInstaller.MacOS.zip VencordInstaller.app
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: VencordInstaller-macos
           path: VencordInstaller.MacOS.zip
@@ -168,7 +168,7 @@ jobs:
           CGO_ENABLED=0 GOOS=windows GOARCH=386 go build -v -tags "static cli" -ldflags "-s -w -extldflags=-static -X 'vencordinstaller/buildinfo.InstallerGitHash=$(git rev-parse --short HEAD)' -X 'vencordinstaller/buildinfo.InstallerTag=${{ github.ref_name }}'" -o VencordInstallerCli.exe
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: VencordInstaller-windows
           path: |
