@@ -1,5 +1,5 @@
-$DOWNLOAD_CLI = "https://github.com/Vencord/Installer/releases/latest/download/VencordInstallerCli.exe"
-$DOWNLOAD_GUI = "https://github.com/Vencord/Installer/releases/latest/download/VencordInstaller.exe"
+$DOWNLOAD_CLI = "https://github.com/5GameMaker/VencordInstaller/releases/latest/download/VencordInstallerCli.exe"
+$DOWNLOAD_GUI = "https://github.com/5GameMaker/VencordInstaller/releases/latest/download/VencordInstallerCli.exe"
 
 if ([Environment]::Is64BitOperatingSystem -and [System.Environment]::OSVersion.Version.Major -ge 10) {
 	Write-Output "=============================="

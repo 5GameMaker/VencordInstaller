@@ -36,6 +36,8 @@ jobs:
 
       - name: Build Cli
         run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -tags "static cli" -ldflags "-s -w -X 'vencordinstaller/buildinfo.InstallerGitHash=$(git rev-parse --short HEAD)' -X 'vencordinstaller/buildinfo.InstallerTag=${{ github.ref_name }}'" -o VencordInstallerCli-linux
+      - name: Build Gui
+        run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -tags "static" -ldflags "-s -w -X 'vencordinstaller/buildinfo.InstallerGitHash=$(git rev-parse --short HEAD)' -X 'vencordinstaller/buildinfo.InstallerTag=${{ github.ref_name }}'" -o VencordInstallerGui-linux
 
       - name: Update executable
         run: |
@@ -47,6 +49,12 @@ jobs:
           name: VencordInstaller-linux
           path: |
             VencordInstallerCli-linux
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: VencordInstallerGui-linux
+          path: |
+            VencordInstallerGui-linux
 
 
   build-mac:

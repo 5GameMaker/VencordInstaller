@@ -11,9 +11,9 @@ import (
 	"vencordinstaller/buildinfo"
 )
 
-const ReleaseUrl = "https://api.github.com/repos/Vendicated/Vencord/releases/latest"
+const ReleaseUrl = "https://api.github.com/repos/5GameMaker/Vencord-but-no-csp/releases/devbuild"
 const ReleaseUrlFallback = "https://vencord.dev/releases/vencord"
-const InstallerReleaseUrl = "https://api.github.com/repos/Vencord/Installer/releases/latest"
+const InstallerReleaseUrl = "https://api.github.com/repos/5GameMaker/VencordInstaller/releases/latest"
 const InstallerReleaseUrlFallback = "https://vencord.dev/releases/installer"
 
 var UserAgent = "VencordInstaller/" + buildinfo.InstallerGitHash + " (https://github.com/Vencord/Installer)"
